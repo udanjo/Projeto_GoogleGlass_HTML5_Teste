@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+<head>
+    <!-- Colocar para alterar o idioma para portugues-->
+    <meta charset="UTF-8" />
+    <title>Google Glass</title>
+    <!--Usado para colocar o estilo-->
+    <link rel="stylesheet" type="text/css" href="_css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="_css/form.css" />
+</head>    
+<script src="_javascript/funcoes.js" ></script>
+<script>
+    function calc_total(){
+        var qtd = parseInt(document.getElementById('idqtd').value);
+        tot = qtd * 1500;
+        document.getElementById('idpreco').value = tot;
+    }
+</script>
+<body>
+<div id="interface">
+    <header id="cabecalho">
+        <hgroup>        
+            <h1>Google Glass</h1>
+            <h2>A revolução do Google está chegando</h2>
+        </hgroup>
+
+        <img id="icone" src="_imagens/contato.png" />
+        
+        <nav id="menu">
+            <h1>Menu Principal</h1>
+            <ul type="disc">
+                <li onmousemove="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="index.html">Home</a></li>
+                <li onmousemove="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                <li onmousemove="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+                <li onmousemove="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+                <li onmousemove="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+            </ul>
+        </nav>
+
+    </header>
+<section id="corpo-full">
+<article id="noticia-principal">
+    <header id="cabecalho-artigo"> 
+        <hgroup>
+            <!-- exemplo de espaço -->
+        <h3>Fale Conosco > &nbsp;&nbsp; Contato</h3>
+        <h1>Formulário de Contato</h1>
+        <h2>por Gustavo Guanabara</h2>
+        <h3 class="direita">Atualizado em 01/Maio/2013</h3>
+        </hgroup>
+    </header>
+    
+     
+ <!--não usar muito com esse action   -->
+<form method="POST" id="fcontato" action="mailto:udanjo_hyuuga@hotmail.com" oninput="calc_total();">
+    <fieldset id="usuario">
+        <legend>Identificação do Usuário</legend>
+    
+    <p><label for="idNome">Nome:</label> 
+        <input type="text" name="txtNome" id="idNome" size="30" maxlength="30" placeholder="Nome Completo"  /></p>
+    <p><label for="idsenha">Senha:</label> 
+        <input type="password" name="txtsenha" id="idsenha" size="8" maxlength="6" placeholder="Senha" /> </p>
+    <p><label for="idemail">E-mail:</label> 
+        <input type="email" name="txtemail" id="idsenha" size="30" maxlength="40" placeholder="E-mail" /> </p>
+    
+    <fieldset id="sexo"><legend>Sexo:</legend>
+        <input type="radio" name="txtSexo" id="idmasc" checked /><label for="idmasc">Masculino</label><br/>
+        <input type="radio" name="txtSexo" id="idfem"/><label for="idfem"> Feminino</label>
+    </fieldset>
+    
+    <p><label for="idnasc">Data de Nascimento:</label> 
+        <input type="date" name="txtnasc" id="idnasc" /> </p>
+    </fieldset>
+    
+    <fieldset id="endereco">
+        <legend>Endereço do Usuário</legend>
+        
+    <p><label for="idrua">Logradouro:</label> 
+        <input type="text" name="txtrua" id="idrua" size="40" maxlength="80" placeholder="Endereço" /> </p>
+    <p><label for="idnro">Número:</label>
+        <input type="text" name="txtnro" id="idnro" size="6" maxlength="10" min="2" placeholder="Nº" /> </p>
+    <p><label for="iduf">Estado:</label>
+        <select name="sUF" id="iduf">
+            <option value="SP" selected> São Paulo</option>
+            <option value="RJ"> Rio de Janeiro </option>
+            <option value="PR"> Paraná </option>
+            <option value="MG"> Minas Gerais </option>
+            <option value="SC"> Santa Catarina </option>
+        </select></p>
+    <p><label for="idcidade">Cidade:</label>
+        <input type="text" name="txtcidade" id="idcidade" size="40" maxlength="80" placeholder="Cidade" list="cidades" /> </p>
+        <datalist id="cidades">
+            <option value="Rio de Janeiro"></option>
+            <option value="Nova Iguaçu"></option>
+            <option value="Niterói"></option>
+            <option value="belford Roxo"></option>
+        </datalist>
+    </fieldset>
+    
+    <fieldset id="mensagem">
+        <legend>Mensagem do Usuário</legend>
+    <p><label for="idgrau"> Grau de Urgência:</label>
+        Mín<input type="range" name="txtgrau" id="idgrau" min="0" max="10" step="2" />Máx</p>
+    <p><label for="idmsg"> Mensagem:</label>
+       <textarea name="txtmsg" id="idmsg" cols="45" rows="5" placeholder="Dígite sua mensagem"></textarea> </p>
+    </fieldset>
+    
+    <fieldset id="pedido">
+        <legend>Quero um Google Glass</legend>
+    <p><input type="checkbox" name="txtgg" id="idgg" />
+        <label for="idgg">Gostaria de adquirir um Google Glass quando disponível</label></p>
+    <p><label for="idcor">Cor:</label> 
+        <input type="color" name="txtcor" id="idcor" /> </p>
+    <p><label for="idqtd">Quantidade:</label>
+        <input type="number" name="txtqtd" id="idqtd" min="0" max="5" value="0" /> </p>
+    <p><label for="idpreco">Preço Total: R$</label>
+        <input type="text" name="txtpreco" id="idpreco" placeholder="Total a Pagar" size="10" readonly /> </p>
+    </fieldset>
+
+    <!--<input type="submit" value="Enviar" />-->
+    <input type="image" name="btnenviar" src="_imagens/botao-enviar.png" />
+</form>
+
+</article>
+</section>
+<footer id="rodape">
+<p>Copyright &copy; 2013 - by Ueverson Pedroso <br/>
+ <a href="http://facebook.com" target="_blank">Facebook</a> | 
+ <a href="http://twitter.com" target="_blank"> Twitter</a></p>
+</footer>
+
+</div>
+</body>
+</html>
